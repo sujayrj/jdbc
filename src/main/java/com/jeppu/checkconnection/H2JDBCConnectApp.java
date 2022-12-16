@@ -1,4 +1,4 @@
-package com.jeppu;
+package com.jeppu.checkconnection;
 
 import com.zaxxer.hikari.HikariDataSource;
 
