@@ -6,10 +6,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * Hello world!
- */
-public class JdbcConnectApp {
+public class MySQLJDBCConnectApp {
     public static void main(String[] args) {
         try (Connection connection = createDataSource().getConnection()) {
             System.out.println("connection.isValid(1) = " + connection.isValid(1));
@@ -19,11 +16,10 @@ public class JdbcConnectApp {
     }
 
     public static DataSource createDataSource() {
-        HikariDataSource hikariDataSource = new HikariDataSource();
-        hikariDataSource.setJdbcUrl("jdbc:h2:mem:");
-        hikariDataSource.setUsername("sa");
-        hikariDataSource.setPassword("password");
-        return hikariDataSource;
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/helloworld");
+        dataSource.setUsername("sujay");
+        dataSource.setPassword("password");
+        return dataSource;
     }
-
 }

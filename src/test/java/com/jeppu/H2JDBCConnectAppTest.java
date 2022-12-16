@@ -7,17 +7,15 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class JdbcConnectAppTest
-    extends TestCase
-{
+public class H2JDBCConnectAppTest
+        extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public JdbcConnectAppTest(String testName )
-    {
-        super( testName );
+    public H2JDBCConnectAppTest(String testName) {
+        super(testName);
     }
 
     /**
@@ -25,7 +23,7 @@ public class JdbcConnectAppTest
      */
     public static Test suite()
     {
-        return new TestSuite( JdbcConnectAppTest.class );
+        return new TestSuite(H2JDBCConnectAppTest.class);
     }
 
     /**
