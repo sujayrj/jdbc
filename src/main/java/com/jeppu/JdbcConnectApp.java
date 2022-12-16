@@ -1,10 +1,9 @@
 package com.jeppu;
 
-import org.h2.jdbcx.JdbcDataSource;
+import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
@@ -20,11 +19,11 @@ public class JdbcConnectApp {
     }
 
     public static DataSource createDataSource() {
-        JdbcDataSource jdbcDataSource = new JdbcDataSource();
-        jdbcDataSource.setURL("jdbc:h2:mem:");
-        jdbcDataSource.setUser("sa");
-        jdbcDataSource.setPassword("password");
-        return jdbcDataSource;
+        HikariDataSource hikariDataSource = new HikariDataSource();
+        hikariDataSource.setJdbcUrl("jdbc:h2:mem:");
+        hikariDataSource.setUsername("sa");
+        hikariDataSource.setPassword("password");
+        return hikariDataSource;
     }
 
 }
