@@ -1,6 +1,8 @@
 package com.jeppu.queries;
 
 import com.zaxxer.hikari.HikariDataSource;
+import net.ttddyy.dsproxy.support.ProxyDataSource;
+import net.ttddyy.dsproxy.support.ProxyDataSourceBuilder;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -30,10 +32,18 @@ public class SelectQueryApp {
     }
 
     private static DataSource createDataSource() {
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl("jdbc:h2:/tmp/banking");
-        dataSource.setUsername("sa");
-        dataSource.setPassword("");
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl("jdbc:h2:/tmp/banking");
+        ds.setUsername("sa");
+        ds.setPassword("");
+
+        ProxyDataSource dataSource = ProxyDataSourceBuilder.create(ds)
+                .logQueryToSysOut()
+                //.logQueryByJUL()
+                //.logQueryBySlf4j()
+                //.logQueryByCommons()
+                .build();
+
         return dataSource;
     }
 }

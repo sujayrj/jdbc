@@ -38,6 +38,11 @@
       <artifactId>mysql-connector-j</artifactId>
       <version>8.0.31</version>
     </dependency>
+    <dependency>
+      <groupId>net.ttddyy</groupId>
+      <artifactId>datasource-proxy</artifactId>
+      <version>1.8</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
